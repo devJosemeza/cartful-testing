@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components"
+import { DEVICE } from "../../styles/variables";
 
 export const TransitionStyles = styled(motion.div)`
   display: flex;
@@ -14,8 +15,14 @@ export const TransitionStyles = styled(motion.div)`
   width: 100%;
   z-index: 99;
 
-  .content {
-    
+  @media ${DEVICE.maxxs} {
+    left: 0;
+  }
+  
+  .content{
+    @media ${DEVICE.maxxs} {
+      width: 35vw;
+    }
   }
 
   img {
@@ -27,5 +34,9 @@ export const TransitionStyles = styled(motion.div)`
     font-size: ${28 / 16}rem;
     font-family: "Roboto", sans-serif;
     color: #000;
+
+    @media ${DEVICE.maxxs} {
+      font-size: ${16 / 16}rem;
+    }
   }
 `;

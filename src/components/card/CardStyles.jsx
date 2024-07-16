@@ -2,7 +2,10 @@ import styled from "styled-components"
 import { COLORS, DEVICE } from "../../styles/variables"
 
 
-export const CardStyles = styled.div`
+export const CardStyles = styled.div.withConfig({
+    shouldForwardProp: (prop) =>
+      !['$isSelected', '$isAnySelected', '$color'].includes(prop)
+  })`
 
     &.small{
         width: ${150 / 16 }rem;
@@ -24,9 +27,9 @@ export const CardStyles = styled.div`
     
     cursor: pointer;
     transition: background-color 0.3s, opacity 0.3s;
-     ${({ isSelected, color }) => (!isSelected ? `background-color:${color}!important;` : 'background-color:#E9E4DB;' )}
-    opacity: ${({ isAnySelected, isSelected }) => (isAnySelected && !isSelected ? '0.3' : '1')};
-    position: relative; 
+    background-color: ${props => !props.$isSelected ? `${props.$color} !important` : "#E9E4DB"};
+    opacity: ${props => props.$isAnySelected && !props.$isSelected ? "0.3" : "1"};
+    position: relative;
 
     &:hover{
         background-color: ${COLORS.white}!important;

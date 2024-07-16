@@ -8,7 +8,7 @@ import { useState } from "react";
 import { AnimatePresence } from 'framer-motion';
 import Transition from "../../transitions/Transition";
 
-
+// Card Content
 const cards = [
   {
     icon: EnthusiastIcon,
@@ -39,13 +39,13 @@ const cards = [
 export const Step1 = ({ handleNext }) => {
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
   const [showTransition, setShowTransition] = useState(false);
-
+  
   const handleCardClick = (index) => {
     setSelectedCardIndex(index === selectedCardIndex ? null : index);
   };
 
   const handleContinue = () => {
-    if (selectedCardIndex === 2) { // Index de "I’m pretty much a barista"
+    if (selectedCardIndex === 2) {
       setShowTransition(true);
     } else {
       handleNext();

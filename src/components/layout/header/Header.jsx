@@ -10,6 +10,12 @@ export const Header = () => {
                         The Coffee Shop
                     </a>
                 </div>
+
+                <div className="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 
             </div>
 

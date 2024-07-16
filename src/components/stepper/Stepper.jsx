@@ -9,20 +9,20 @@ import LeftArrowIcon  from '@/../../public/assets/icons/left-arrow.svg';
 
 const Stepper = () => {
   const [currentStep, setCurrentStep] = useState(0);
-
+  // function to go
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };
-
+ // function to go back
   const handleBack = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
   };
 
-
+  // Steps
   const steps = [
     { label: '1', component: <Step1 handleNext={handleNext}/> },
     { label: '2', component: <Step2 handleNext={handleNext}/> },
@@ -35,8 +35,8 @@ const Stepper = () => {
         {steps.map((step, index) => (
           <Step
             key={index}
-            isActive={index === currentStep}
-            isCompleted={index < currentStep}
+            $isActive={index === currentStep}
+            $isCompleted={index < currentStep}
           >
             {step.label}
           </Step>

@@ -6,9 +6,9 @@ export const Card = ({className, icon, title, subtitle, color, isSelected, isAny
     <CardStyles
       style={{ backgroundColor:  color }}
       onClick={onClick}
-      isSelected={isSelected}
-      isAnySelected={isAnySelected}
-      color={color}
+      $isSelected={isSelected}
+      $isAnySelected={isAnySelected}
+      $color={color}
       className={className}
     >
       <div className="content">

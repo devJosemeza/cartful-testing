@@ -19,13 +19,16 @@ export const StepperHeader = styled.div`
   padding: 2rem;
 `;
 
-export const Step = styled.div`
+export const Step = styled.div.withConfig({
+  shouldForwardProp: (prop) =>
+    !['$isActive', '$isCompleted'].includes(prop)
+})`
   width: ${24/16}rem;
   height: ${24/16}rem;
   border-radius: 50%;
-  ${({ isActive }) => (isActive ? `` : `border: .1rem solid ${COLORS.black};`)}
-  background-color: ${({ isActive, isCompleted }) => (isActive ? `${COLORS.yellow}` : isCompleted ? `${COLORS.black}` : '#fff')};
-  color: ${({ isActive, isCompleted }) => (isActive || isCompleted ? `${COLORS.white}` : `${COLORS.black}`)};
+  ${({ $isActive }) => ($isActive ? `` : `border: .1rem solid ${COLORS.black};`)}
+  background-color: ${({ $isActive, $isCompleted }) => ($isActive ? `${COLORS.yellow}` : $isCompleted ? `${COLORS.black}` : '#fff')};
+  color: ${({ $isActive, $isCompleted }) => ($isActive || $isCompleted ? `${COLORS.white}` : `${COLORS.black}`)};
   display: flex;
   align-items: center;
   justify-content: center;

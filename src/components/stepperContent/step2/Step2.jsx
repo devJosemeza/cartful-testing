@@ -9,6 +9,7 @@ import MokaPotIcon  from '@/../../public/assets/icons/moka-pot-desktop.svg';
 import { useState } from "react";
 import { ArchedContainer, Step2tStyles } from "./Step2Styles";
 
+// Card content
 const cards = [
     {
       icon: CofferMakerIcon,
@@ -55,13 +56,11 @@ export const Step2 = ({ handleNext }) => {
   };
 
     return (
-
-        
         <Step2tStyles>
             <div className="wrapper">
                 <h2>How do you brew at home?</h2>
 
-                  <ArchedContainer numItems={cards.length}>
+                  <ArchedContainer>
                     {cards.map((card, index) => (
                           <Card className="card small"
                               key={index}

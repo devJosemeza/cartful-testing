@@ -3,18 +3,19 @@ import React, { useEffect } from 'react';
 import PrettyIcon from '@/../../public/assets/icons/pretty-much-a-barista.svg';
 import { TransitionStyles } from './TransitionStyles';
 
-
+// Set up for transition
 const transitionVariants = {
     hidden: { opacity: 0, x: '100%', transition: { duration: 0.5, ease: 'easeOut' } },
     visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
     exit: { opacity: 0, x: '-100%', transition: { duration: 0.5, ease: 'easeIn' } },
 };
 
+// Duration
 const Transition = ({ onComplete }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 1500);
+    }, 15000000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
